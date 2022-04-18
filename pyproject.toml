@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pygame_app"
+version = "0.0.1"
+description = "something good here"
+readme = "README.md"
+keywords = ["one", "two"]
+license = {text = "MIT License"}
+classifiers = [
+     "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "requests",
+    'importlib-metadata; python_version<"3.8"',
+]
