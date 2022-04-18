@@ -1,8 +1,8 @@
 import pygame
 
-from gameapp.engine import create_basic_window
-from gameapp.engine import Engine
-from gameapp.world import World
+from pygame_app.engine import create_basic_window
+from pygame_app.engine import Engine
+from pygame_app.world import World
 
 
 def test_create_basic_window():

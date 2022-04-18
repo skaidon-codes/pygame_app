@@ -1,5 +1,5 @@
 from typing import Protocol, Iterator
-from gameapp.object import Object
+from pygame_app.object import Object
 from pygame import Color
 
 

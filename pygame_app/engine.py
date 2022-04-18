@@ -2,8 +2,8 @@ import sys
 
 import pygame
 
-from gameapp.world import World
-from gameapp import defaults
+from pygame_app.world import World
+from pygame_app import defaults
 
 
 class Engine:
