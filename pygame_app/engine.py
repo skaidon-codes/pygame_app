@@ -19,7 +19,7 @@ class Engine:
 
     def update(self):
         self.world.pre_update()
-        for o in self.objects():
+        for o in self.world.objects():
             o.update()
         self.world.post_update()
 
