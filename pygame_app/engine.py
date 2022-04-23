@@ -42,7 +42,7 @@ class Engine:
         while True:
             for event in pygame.event.get():
                 self.process_event(event)
-            self.process_keyboard_state()
+            self.world.process_keyboard_state()
             self.update()
             self.refresh_screen()
             pygame.display.update()
