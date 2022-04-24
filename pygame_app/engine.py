@@ -54,7 +54,7 @@ class Engine:
         sys.exit()
 
 
-def create_basic_window(window_width: int, window_height: int, title: str):
+def create_basic_window(window_width: int, window_height: int, title: str, flags=0):
     # Checks for errors encountered
     check_errors = pygame.init()
     pygame.font.init()
@@ -68,5 +68,5 @@ def create_basic_window(window_width: int, window_height: int, title: str):
     # Initialise game window
     if title:
         pygame.display.set_caption(title)
-    game_window = pygame.display.set_mode((window_width, window_height))
+    game_window = pygame.display.set_mode((window_width, window_height), flags)
     return game_window
