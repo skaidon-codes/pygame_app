@@ -1,10 +1,14 @@
-from typing import Protocol, Iterator
+from typing import Protocol, Iterator, Optional
 from pygame_app.object import Object
 from pygame import Color
 
 
 class World(Protocol):
     """Every application must have a single class that implements World protocol"""
+
+    def init(self, window):
+        """Called once before entering main loop, links main window to world"""
+        pass
 
     def create_objects(self) -> None:
         """Called once to create initial game objects"""
@@ -20,6 +24,9 @@ class World(Protocol):
 
     def objects(self) -> Iterator[Object]:
         return []
+
+    def update_list(self) -> Optional[list]:
+        return None
 
     def process_keyboard_event(self, event):
         pass

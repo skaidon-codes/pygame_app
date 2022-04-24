@@ -36,8 +36,11 @@ class Engine:
         elif event.type == pygame.QUIT:
             self.exit()
 
-    def run(self):
+    def init(self):
+        self.world.init(self.window)
         self.world.create_objects()
+
+    def run(self):
         fps_controller = pygame.time.Clock()
         while True:
             for event in pygame.event.get():
@@ -45,7 +48,7 @@ class Engine:
             self.world.process_keyboard_state()
             self.update()
             self.refresh_screen()
-            pygame.display.update()
+            pygame.display.update(self.world.update_list())
             fps_controller.tick(self.frame_rate)
 
     @staticmethod

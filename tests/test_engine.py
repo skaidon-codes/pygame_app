@@ -14,7 +14,16 @@ def test_create_basic_window():
 
 def test_engine():
     class TestWorld(World):
-        pass
+        def __init__(self):
+            self.window = None
+
+        def init(self, window):
+            assert window is not None
+            self.window = window
+
     window = create_basic_window(200, 100, "MyGame")
     engine = Engine(window, TestWorld())
     assert engine is not None
+    assert engine.world is not None
+    engine.init()
+    assert engine.world.window == window
