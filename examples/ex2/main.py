@@ -1,3 +1,6 @@
+# inspiration for this example was taken from
+# https://pythonprogramming.net/opengl-rotating-cube-example-pyopengl-tutorial/
+
 import random
 from typing import Iterator
 
