@@ -24,9 +24,23 @@ class Engine:
         self.world.post_update()
 
     def refresh_screen(self):
+        # conditionally erase background
         if self.background_erase_color:
             self.window.fill(self.background_erase_color)
+
+        # redraw world
         self.draw()
+
+        # flip the display buffer
+        if self.window.get_flags() & pygame.OPENGL:
+            # display.update() does not work with OPENGL
+            pygame.display.flip()
+        else:
+            update_list = self.world.update_list()
+            if update_list is not None:
+                pygame.display.update(update_list)
+            else:
+                pygame.display.update()
 
     def process_event(self, event):
         if event.type == pygame.MOUSEMOTION:
@@ -48,13 +62,6 @@ class Engine:
             self.world.process_keyboard_state()
             self.update()
             self.refresh_screen()
-
-            update_list = self.world.update_list()
-            if update_list is not None:
-                pygame.display.update(update_list)
-            else:
-                pygame.display.update()
-
             fps_controller.tick(self.frame_rate)
 
     @staticmethod
